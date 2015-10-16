@@ -38,7 +38,7 @@ class EntryController {
         NSUserDefaults.standardUserDefaults().synchronize()
     }
 //    //remove entry from array
-func removeEntry(entry:Entry) ->(){
+    func removeEntry(entry:Entry) ->(){
         let index = self.allEntry.indexOf(entry)
         if let itemIndex = index {
             self.allEntry.removeAtIndex(itemIndex)
