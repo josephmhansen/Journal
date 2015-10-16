@@ -11,11 +11,22 @@ import UIKit
 class DetailEntryViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var entryTitle: UITextField!
     @IBOutlet weak var entryText: UITextView!
+    
+    var entry: Entry?
     @IBAction func saveButton(sender: AnyObject) {
         //what do i replace nsdate with
         
-        let entry = Entry(timeStamp: NSDate(), title: entryTitle.text!, bodyText: entryText.text!)
-        EntryController.sharedController.addEntry(entry)
+        if let entry = self.entry{
+            entry.title = self.entryTitle.text!
+            entry.bodyText = self.entryText.text!
+            entry.timeStamp = NSDate()
+        } else{
+            let newEntry = Entry(timeStamp: NSDate(), title: self.entryTitle.text!, bodyText: self.entryText.text)
+            EntryController.sharedController.addEntry(newEntry)
+            self.entry = newEntry
+        }
+        self.navigationController?.popViewControllerAnimated(true)
+        
         
     }
     
@@ -26,8 +37,8 @@ class DetailEntryViewController: UIViewController, UITextFieldDelegate {
     }
     //TODO t
     func updateWithEntry(entry: Entry){
-        title = entry.title
         
+        self.entry = entry
         self.entryTitle.text = entry.title
         self.entryText.text = entry.bodyText
     }

@@ -39,7 +39,9 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,7 +54,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         if segue.identifier == "toEntryDetail" {
             if let detailViewController = segue.destinationViewController as? DetailEntryViewController {
                     _=detailViewController.view
-                    let indexPath = self.tableView.indexPathForSelectedRow
+                    let indexPath = tableView.indexPathForSelectedRow
                     if let selectedRow = indexPath?.row{
                         let entry = EntryController.sharedController.allEntry[selectedRow]
                         detailViewController.updateWithEntry(entry)

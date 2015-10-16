@@ -35,9 +35,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="TqP-Kd-HIF">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="VBD-BS-iOW">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="VBD-BS-iOW">
                             <connections>
-                                <segue destination="NW0-Vh-OQe" kind="show" id="yE0-Rw-aYt"/>
+                                <segue destination="NW0-Vh-OQe" kind="show" identifier="toEntryDetail" id="yE0-Rw-aYt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
